@@ -1,3 +1,29 @@
+variable "test_vpc" {provider "aws" {
+  region     = "ap-south-1"
+  profile    = "user_name"
+}
+
+######################################################################################
+  description = "VPC name for Test environment"
+  type = string
+  default = "vpc-407a6528"
+}
+
+variable "test_network_cidr" {
+  description = "IP addressing for Test Network"
+  default = "200.0.0.0/16"
+}
+
+variable "test_public_01_cidr" {
+  description = "Public 0.0 CIDR for externally accessible subnet"
+  default = "200.0.0.0/24"
+}
+
+variable "test_public_02_cidr" {
+  description = "Public 0.0 CIDR for externally accessible subnet"
+  default = "200.0.1.0/24"
+}
+########################################################################################
 # Define a vpc
 resource "aws_vpc" "test_vpc" {
   cidr_block = "200.0.0.0/16"
